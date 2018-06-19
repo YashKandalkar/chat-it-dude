@@ -9,8 +9,10 @@ app.get('/', function (request, result) {
 
 //when a user joins this func executes
 io.on('connection', function (socket) {
-	socket.on('clientEvent', function(data) {
-		console.log(data)
+	console.log('A user connected');
+	document.write('hi')
+	socket.on('disconnection', function() {
+		console.log("A user disconnected")
 	});
 });
 
