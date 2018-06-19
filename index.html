@@ -5,11 +5,23 @@
 	</head>
 	<script type="text/javascript" src = "/socket.io/socket.io.js"></script>
 
-	<script type="text/javascript">
-		let socket = io();
-		socket.on('connectionEvent', function(data){document.write(data.description)});
-	</script>
 	<body>
-		Hello World!
+
+		<input type="text" id="myText" value="Chat here...">
+		<ul id="chat_list"></ul>
+		<button onclick="myFunction()">send</button>
+
+
+		<script type="text/javascript">
+			let socket = io();
+
+			function myFunction() {
+	  			var ul = document.getElementById("chat_list");
+	  			var li = document.createElement("li");
+	  			var x = document.getElementById("myText").value;
+	  			li.appendChild(document.createTextNode(x));
+	  			ul.appendChild(li);
+	  		}
+		</script>
 	</body>
 </html>
