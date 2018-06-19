@@ -10,7 +10,7 @@ app.get('/', function (request, result) {
 //when a user joins this func executes
 io.on('connection', function (socket) {
 	console.log('A user connected');
-	document.write('hi')
+	socket.emit("connectionEvent", {description : 'new user joined'});
 	socket.on('disconnection', function() {
 		console.log("A user disconnected")
 	});

@@ -7,7 +7,7 @@
 
 	<script type="text/javascript">
 		let socket = io();
-		socket.emit('clientEvent', 'test event from the client');
+		socket.on('connectionEvent', function(data){document.write(data.description)});
 	</script>
 	<body>
 		Hello World!
