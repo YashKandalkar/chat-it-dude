@@ -15,7 +15,7 @@ io.on('connection', function (socket) {
 	socket.emit('broadcast', {description : clients + ' people online!'});
 
 	socket.on('messageSent', function (data) {
-		io.sockets.emit('newMsg', {message: data.message})
+		io.sockets.emit('newMsg', {message: data.message});
 	});
 
 	socket.on('disconnection', function() {

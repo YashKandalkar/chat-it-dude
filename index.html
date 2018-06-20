@@ -33,7 +33,8 @@
 			var online_status = document.getElementById("online_status");
 
 			socket.on('broadcast', function(data){
-				online_status.innerHTML(data.description);
+				var p = document.createElement("p");
+				online_status.appendChild(document.createTextNode(data.description))
 			});
 
 			socket.on('newMsg', function(data){
