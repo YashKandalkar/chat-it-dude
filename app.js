@@ -6,13 +6,21 @@ app.get('/', function (request, result) {
 	result.sendfile('index.html');
 });
 
+var clients = 0;
 
 //when a user joins this func executes
 io.on('connection', function (socket) {
-	console.log('A user connected');
-	socket.emit("connectionEvent", {description : 'new user joined'});
+
+	clients++;
+	socket.emit('broadcast', {description : clients + ' people online!'});
+
+	socket.on('messageSent', function (data) {
+		io.sockets.emit('newMsg', {message: data.message})
+	});
+
 	socket.on('disconnection', function() {
-		console.log("A user disconnected")
+		clients--;
+		socket.emit('broadcast', {description : clients + ' people online!'});
 	});
 });
 

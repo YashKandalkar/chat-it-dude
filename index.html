@@ -7,21 +7,14 @@
 
 	<body>
 
-		<input type="text" id="myText" value="Chat here...">
+		<input type="text" id="myText" placeholder="" ="Chat here...">
 		<ul id="chat_list"></ul>
 		<button onclick="myFunction()">send</button>
 
+		<div id="online_status"></div>
 
-		<script type="text/javascript">
-			let socket = io();
+		<link rel="stylesheet" href="CSS/client.css">
 
-			function myFunction() {
-	  			var ul = document.getElementById("chat_list");
-	  			var li = document.createElement("li");
-	  			var x = document.getElementById("myText").value;
-	  			li.appendChild(document.createTextNode(x));
-	  			ul.appendChild(li);
-	  		}
-		</script>
+		<script type="text/javascript" src="JavaScript/client.js"></script>
 	</body>
 </html>
