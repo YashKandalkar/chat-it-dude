@@ -6,9 +6,11 @@ function myFunction() {
 	var x = document.getElementById("myText").value;
 
 	//send an event to our server with the message
-	socket.emit('messageSent', {message: x})
-	li.appendChild(document.createTextNode(x));
-	ul.appendChild(li);
+	if(x){
+		socket.emit('messageSent', {message: x})
+		li.appendChild(document.createTextNode(x));
+		ul.appendChild(li);
+	}
 }
 
 var online_status = document.getElementById("online_status");
