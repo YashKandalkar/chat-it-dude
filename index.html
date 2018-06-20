@@ -4,8 +4,7 @@
 		<title>Hello World</title>
 	</head>
 	<script type="text/javascript" src="JavaScript/client.js"></script>
-	<link rel="stylesheet" href="CSS/client.css">
-	<script type="text/javascript" src = "/socket.io/socket.io.js"></script>
+	<script src = "/socket.io/socket.io.js"></script>
 
 	<body>
 		<input type="text" id="myText" placeholder="Chat here..." value="">
@@ -14,5 +13,46 @@
 		<button onclick="myFunction()">send</button>
 
 		<div id="online_status"></div>
+
+		<script type="text/javascript">
+			let socket = io();
+
+			function myFunction() {
+				var ul = document.getElementById("chat_list");
+				var li = document.createElement("li");
+				var x = document.getElementById("myText").value;
+
+				//send an event to our server with the message
+				if(x){
+					socket.emit('messageSent', {message: x});
+					li.appendChild(document.createTextNode(x));
+					ul.appendChild(li);
+				}
+			}
+
+			var online_status = document.getElementById("online_status");
+
+			socket.on('broadcast', function(data){
+				online_status.innerHTML(data.description);
+			});
+
+			socket.on('newMsg', function(data){
+				var ul = document.getElementById("chat_list");
+				var li = document.createElement("li");
+
+				li.appendChild(document.createTextNode(data.message));
+				ul.appendChild(li);
+			});
+		</script>
+
+		<style type="text/css">
+			#online_status{
+				position: fixed;
+    			bottom: 0;
+    			right: 0;
+    			width: 300px;
+    			border: 3px solid #73AD21;
+			}
+		</style>
 	</body>
 </html>
