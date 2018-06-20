@@ -12,7 +12,7 @@ var clients = 0;
 io.on('connection', function (socket) {
 
 	clients++;
-	socket.emit('broadcast', {description : clients + ' people online!'});
+	io.sockets.emit('update_mem_count', {description : clients + ' people online!'});
 
 	socket.on('messageSent', function (data) {
 		io.sockets.emit('newMsg', {message: data.message});
@@ -20,7 +20,7 @@ io.on('connection', function (socket) {
 
 	socket.on('disconnect', function() {
 		clients--;
-		socket.emit('broadcast', {description : clients + ' people online!'});
+		io.sockets.emit('update_mem_count', {description : clients + ' people online!'});
 	});
 });
 
