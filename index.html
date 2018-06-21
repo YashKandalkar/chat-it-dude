@@ -2,13 +2,11 @@
 <html>
 	<head>
 		<title>Chatsss</title>
-		<script type="text/javascript" src=/JavaScript/client.js></script>
-		<link rel="stylesheet" type="text/css" href="/CSS/client.css">
 	</head>
 	<script src = "/socket.io/socket.io.js"></script>
 
 	<body>
-		<input type="text" id="myText" placeholder="Chat here..." value="" onkeypress="keyCode(event)">
+		<input type="text" id="myText" placeholder="Chat here..." value="" onkeydown="keyCode(event)">
 		<button type="button" name="button" onclick="sendMessage()">send</button>
 
 		<ul id="chat_list"></ul>
