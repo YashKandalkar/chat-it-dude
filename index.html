@@ -3,59 +3,16 @@
 	<head>
 		<title>Chatsss</title>
 	</head>
-	<script type="text/javascript" src="JavaScript/client.js"></script>
 	<script src = "/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src = /JavaScript/client.js></script>
+	<link rel="stylesheet" type="text/css" href="/CSS/client.css">
 
 	<body>
-		<input type="text" id="myText" placeholder="Chat here..." value="">
-		<button type="button" name="button" onclick="myFunction()">send</button>
+		<input type="text" id="myText" placeholder="Chat here..." value="" onkeypress="keyCode(event)">
+		<button type="button" name="button" onclick="sendMessage()">send</button>
 
 		<ul id="chat_list"></ul>
 
-		<div id="online_status"></div>
-
-		<script type="text/javascript">
-			let socket = io();
-
-			function myFunction() {
-				var ul = document.getElementById("chat_list");
-				var li = document.createElement("li");
-				var x = document.getElementById("myText").value;
-				document.getElementById("myText").value = ''
-
-				//send an event to our server with the message
-				if(x){
-					socket.emit('messageSent', {message: x});
-				}
-			}
-
-			var online_status = document.getElementById("online_status");
-
-			socket.on('update_mem_count', function(data){
-
-				while (online_status.firstChild) {
-    				online_status.removeChild(online_status.firstChild);
-				}			
-				online_status.appendChild(document.createTextNode(data.description))
-			});
-
-			socket.on('newMsg', function(data){
-				var ul = document.getElementById("chat_list");
-				var li = document.createElement("li");
-
-				li.appendChild(document.createTextNode(data.message));
-				ul.insertBefore(li, ul.childNodes[0])
-			});
-		</script>
-
-		<style type="text/css">
-			#online_status{
-				position: fixed;
-    			bottom: 0;
-    			right: 0;
-    			width: 300px;
-    			border: 3px solid #73AD21;
-			}
-		</style>
+		<div id="online_status"></div>	
 	</body>
 </html>
