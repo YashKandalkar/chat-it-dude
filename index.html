@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 	<head>
 		<title>Chatsss</title>
 	</head>
-	<script src = "/socket.io/socket.io.js"></script>
-	<script type="text/javascript" src="/client.js"></script>
-	<link rel="stylesheet" type="text/css" href="/client.css">
+    <script src = "/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/client.js"></script>
+    <link rel="stylesheet" type="text/css" href="/client.css">
 
 	<body>
-		<input type="text" id="myText" placeholder="Chat here..." value="" onkeydown="keyCode(event)">
-		<button type="button" name="button" onclick="sendMessage()">send</button>
+		<div id="chatSreen">
 
-		<ul id="chat_list"></ul>
+            <div class="chatNode">
+                <p>
+                    top
+                    <span class="time">11:00</span>
+                </p>
+            </div>
 
-		<div id="online_status"></div>	
+		</div>
+      
+        <div id="inputDiv">
+            <input type="text" id="inputBox" placeholder="Chat here..." value="" onkeydown="keyCode(event)">
+            <button type="button" name="button" id="sendButton" onclick="sendMessage()">send</button>
+        </div>
+
 	</body>
 </html>

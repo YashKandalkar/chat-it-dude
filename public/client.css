@@ -1,7 +1,71 @@
-#online_status{
-	position: fixed;
-	bottom: 0;
-	right: 0;
-	width: 300px;
-	border: 3px solid #73AD21;
+#chatSreen{
+    width: 90vw;
+    height: 90vh;
+    background-color:#0e0e0e;
+    outline:round;
+    border-radius:10px;
+    vertical-align: bottom;
+    display: table-cell;
+}
+
+.time{
+    float: right;
+    padding-right:10px;
+    color: #aaa;
+}
+
+.chatNode {
+    font-size:18px;
+    font-family: "Courier New", Courier, monospace;
+    outline: round;
+    height: relative;
+    min-height: 30px;
+    max-width: 87vw;
+    background-color: #323232;
+    border-radius: 5px;
+    color: #ffffff;
+    padding-left: 10px;
+    padding-right: 5px;
+    margin-bottom: 10px;
+    margin-left: 13px;
+    left:15px;
+    right:15px;
+}
+
+
+#inputDiv{
+    position: absolute;
+    bottom: 0;
+    color:#ffffff;
+    padding:10px;
+    background-color:#0e0e0e;
+    outline:round;
+    border-radius:10px;
+    width: 87vw;
+    margin-left: 10px;
+}
+
+#inputBox{
+    color:#ffffff;
+    height:25px;
+    padding-left: 5px;
+    position: relative;
+    background-color: #323232;
+    width: 80vw;
+    border: 1px groove;
+    border-color: #ffffff;
+    border-radius: 5px;
+}
+
+#sendButton{
+    color:#ffffff;
+    background-color: #323232;
+    position: relative;
+    left: 10px;
+    height:25px;
+    width:70px;
+}
+
+body {
+    background-color:#555555;
 }

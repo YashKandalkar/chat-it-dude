@@ -9,22 +9,19 @@ app.get('/', function (request, result) {
 	result.sendfile('index.html');
 });
 
-var clients = 0;
 var port = process.env.PORT || 3000;
 
+users = [];
 //when a user joins this func executes
 io.on('connection', function (socket) {
-
-	clients++;
-	io.sockets.emit('update_mem_count', {description : clients + ' people online!'});
-
+	console.log('A user connected');
+	
 	socket.on('messageSent', function (data) {
 		io.sockets.emit('newMsg', {message: data.message});
 	});
 
 	socket.on('disconnect', function() {
-		clients--;
-		io.sockets.emit('update_mem_count', {description : clients + ' people online!'});
+		
 	});
 });
 

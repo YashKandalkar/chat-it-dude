@@ -1,10 +1,8 @@
 let socket = io();
 
 function sendMessage() {
-	var ul = document.getElementById("chat_list");
-	var li = document.createElement("li");
-	var x = document.getElementById("myText").value;
-	document.getElementById("myText").value = ''
+	var x = document.getElementById("inputBox").value;
+	document.getElementById("inputBox").value = ''
 
 	//send an event to our server with the message
 	if(x){
@@ -20,18 +18,7 @@ function keyCode(event) {
 }
 
 
-socket.on('update_mem_count', function(data){
-	var online_status = document.getElementById("online_status");
-	while (online_status.firstChild) {
-		online_status.removeChild(online_status.firstChild);
-	}			
-	online_status.appendChild(document.createTextNode(data.description))
-});
-
 socket.on('newMsg', function(data){
-	var ul = document.getElementById("chat_list");
-	var li = document.createElement("li");
-
-	li.appendChild(document.createTextNode(data.message));
-	ul.insertBefore(li, ul.childNodes[0])
+	var chatScreen = document.getElementById("chatScreen");	
+	chatScreen.innerHTML += '<div class="chatNode"><p>' + data.message + '<span class="time">' + new Date().toLocaleTimeString() + '</span></p></div>'
 });
