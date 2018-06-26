@@ -6,6 +6,7 @@
     border-radius:10px;
     vertical-align: bottom;
     display: table-cell;
+    overflow: auto;
 }
 
 .time{
