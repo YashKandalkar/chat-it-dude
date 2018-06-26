@@ -20,5 +20,16 @@ function keyCode(event) {
 
 socket.on('newMsg', function(data){
 	var chatScreen = document.getElementById("chatScreen");	
-	chatScreen.innerHTML += '<div class="chatNode"><p>' + data.message + '<span class="time">' + new Date().toLocaleTimeString() + '</span></p></div>'
+	var span = document.createElement('span');
+	span.classList.add('time');
+	span.appendChild(document.createTextNode(new Date().toLocaleTimeString()));
+	var p = document.createElement("P");
+	p.appendChild(document.createTextNode(data.message));
+	p.appendChild(span);
+
+	var chatNode = document.createElement("DIV");
+	chatNode.classList.add('chatNode');
+	chatNode.appendChild(p);
+	chatScreen.appendChild(chatNode);
+
 });
