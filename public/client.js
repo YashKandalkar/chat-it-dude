@@ -31,5 +31,5 @@ socket.on('newMsg', function(data){
 	chatNode.classList.add('chatNode');
 	chatNode.appendChild(p);
 	chatScreen.appendChild(chatNode);
-
+	chatScreen.scrollTop = chatScreen.scrollHeight;
 });

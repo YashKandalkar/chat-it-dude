@@ -5,8 +5,6 @@
     background-color:#0e0e0e;
     outline:round;
     border-radius:10px;
-    vertical-align: bottom;
-    display: table-cell;
     overflow-y: scroll;
 }
 
