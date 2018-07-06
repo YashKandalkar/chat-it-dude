@@ -7,7 +7,7 @@
     border-radius:10px;
     vertical-align: bottom;
     display: table-cell;
-    overflow: auto;
+    overflow: scroll;
 }
 
 .time{
@@ -20,7 +20,6 @@
     font-size:18px;
     font-family: "Courier New", Courier, monospace;
     outline: round;
-    height: relative;
     min-height: 30px;
     max-width: 87vw;
     background-color: #323232;
