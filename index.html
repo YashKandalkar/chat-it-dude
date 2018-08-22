@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-	<head>
-		<title>Chatsss</title>
-	</head>
+    <head>
+        <title>Chat It Out!</title>
+    </head>
     <script src = "/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="/client.js"></script>
     <link rel="stylesheet" type="text/css" href="/client.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-
-	<body>
-		<div id="chatScreen">
-
-		</div>
-      
-        <div id="inputDiv">
-            <input type="text" id="inputBox" placeholder="Chat here..." value="" onkeydown="keyCode(event)">
-            <button type="button" name="button" id="sendButton" onclick="sendMessage()">send</button>
+    <body>
+        <div id = "msg_body">
+            <!--div class = "msg">Hello World!</div>-->
         </div>
-
-	</body>
+        <div id = "bar">
+            <input id = "message" type = "text" placeholder = "Input text here">
+            <input id = "send" type = "submit" value = "Send" onclick = "addMessage()">
+        </div>
+    </body>
 </html>

@@ -1,8 +1,8 @@
 let socket = io();
 
 function sendMessage() {
-	var x = document.getElementById("inputBox").value;
-	document.getElementById("inputBox").value = ''
+	var x = document.getElementById("message").value;
+	document.getElementById("message").value = ''
 
 	//send an event to our server with the message
 	if(x){
@@ -17,19 +17,15 @@ function keyCode(event) {
     }
 }
 
-
 socket.on('newMsg', function(data){
-	var chatScreen = document.getElementById("chatScreen");	
-	var span = document.createElement('span');
-	span.classList.add('time');
-	span.appendChild(document.createTextNode(new Date().toLocaleTimeString()));
-	var p = document.createElement("P");
-	p.appendChild(document.createTextNode(data.message));
-	p.appendChild(span);
-
-	var chatNode = document.createElement("DIV");
-	chatNode.classList.add('chatNode');
-	chatNode.appendChild(p);
-	chatScreen.appendChild(chatNode);
-	chatScreen.scrollTop = chatScreen.scrollHeight;
+	var messageDiv = document.createElement("div");
+    var messageBody = document.getElementById("msg_body");
+    
+    if (/([^\s])/.test(data.message)) 
+    {
+        messageDiv.className = "msg";
+        messageDiv.appendChild(document.createTextNode(data.message));
+        messageBody.appendChild(messageDiv);
+        messageBody.scrollTo(0,messageBody.scrollHeight);
+    }
 });
