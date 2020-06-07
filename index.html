@@ -2,14 +2,15 @@
 <html>
     <head>
         <title>Chat It Out!</title>
+        <script src = "/socket.io/socket.io.js"></script>
+        <script type="text/javascript" src="client.js"></script>
+        <link rel="stylesheet" type="text/css" href="client.css">
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <script src = "/socket.io/socket.io.js"></script>
-    <script type="text/javascript" src="/client.js"></script>
-    <link rel="stylesheet" type="text/css" href="/client.css">
-
+    
     <body>
         <div id = "msg_body">
-            <!--div class = "msg">Hello World!</div>-->
+
         </div>
         <div id = "bar">
             <input id = "message" type = "text" placeholder = "Input text here" onkeydown="keyCode(event)">

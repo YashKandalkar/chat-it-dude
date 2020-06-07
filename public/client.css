@@ -1,34 +1,30 @@
 html {
+    
+    
+}
+
+body {
     background-image: url(https://i0.wp.com/www.pixelmusic.net/wp-content/uploads/2015/05/Summer-Anime-Music-Wallpaper.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
-    height: 100vh;
-    width: 100vw;
-    
-}
-
-body {
-    background-color: rgba(0,0,0,.5);
-    border-radius: 10px;
-    height: 90vh;
-    
 }
 
 #msg_body {
-    height: 80%;
-    width: 90%;
-    padding: 15px 17px 0 0;
+    background-color: rgba(0,0,0,.5);
+    border-radius: 10px;
+    height: 80vh;
+    padding: inherit;
+    margin: 20px;
     overflow-y: auto;
     box-sizing: content-box;
-    position: fixed;
 }
 
 .msg {
     background-color: whitesmoke;
     padding: 12px 3%;
-    margin: 10px 0 10px 5%;
+    margin: 10px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, .5); 
     border-radius: 2px;
     word-break: break-all; word-wrap: break-word;
@@ -36,7 +32,7 @@ body {
 
 #bar {
     position: absolute;
-    top: 87%;
+    top: 89%;
     left: 0%;
     height: 50px;
     width: 100%;
